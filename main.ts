@@ -24,7 +24,7 @@ import calculate from './calculate.ts';
   if (output instanceof Error) {
     console.log(output.message);
   } else {
-    console.log(output?.join('\n'));
+    console.log('\t' + output?.join(' and '));
   }
 
   ask();
