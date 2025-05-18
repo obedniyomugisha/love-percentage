@@ -22,12 +22,10 @@ import calculate from './calculate.ts';
   })();
 
   if (output instanceof Error) {
-    console.log('%c' + output.message, 'color: red');
+    console.log(output.message);
   } else {
-    console.log('%c' + output?.join('\n'), 'color: blue');
+    console.log(output?.join('\n'));
   }
 
   ask();
 })();
-
-console.log('Bye bye 👋! I hope you enjoyed the program 😊!');
