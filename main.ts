@@ -1,31 +1,41 @@
+import express from 'npm:express';
 import calculate from './calculate.ts';
+import expressLayouts from 'npm:express-ejs-layouts';
 
-(function ask() {
-  const input = prompt('> ') ?? '';
+const app = express();
+app.set('view engine', 'ejs');
+app.use(expressLayouts);
+app.use(express.static('public'));
 
-  if (input === 'exit') return;
+app.get('/', (_, res) => {
+  res.render('index', { title: 'Home' });
+});
 
-  const output = (() => {
-    const names = input.toLowerCase().split('and');
+app.get('/result', (req, res) => {
+  let { firstName, secondName } = req.query;
 
-    const firstName = names[0]?.trim();
-    const secondName = names[1]?.trim();
-
-    if (!firstName || !secondName) {
-      return new Error('Something went wrong!');
-    }
-
-    return [
-      `${firstName} loves ${secondName} ${calculate(firstName, secondName)}`,
-      `${secondName} loves ${firstName} ${calculate(secondName, firstName)}`,
-    ];
-  })();
-
-  if (output instanceof Error) {
-    console.log(output.message);
-  } else {
-    console.log('\t' + output?.join(' and '));
+  if (typeof firstName === 'undefined' || typeof secondName === 'undefined') {
+    return res.sendStatus(400);
   }
 
-  ask();
-})();
+  firstName = String(firstName);
+  secondName = String(secondName);
+
+  if (!firstName.trim() || !secondName.trim()) {
+    return res.sendStatus(400);
+  }
+
+  const resultA = calculate(firstName.toLowerCase(), secondName.toLowerCase());
+  const resultB = calculate(secondName.toLowerCase(), firstName.toLowerCase());
+
+  res.render('result', {
+    title: `Results for ${firstName} and ${secondName}`,
+    resultA,
+    resultB,
+    firstName,
+    secondName,
+  });
+});
+
+app.listen(8000);
+console.log(`Server is running on http://localhost:8000`);
