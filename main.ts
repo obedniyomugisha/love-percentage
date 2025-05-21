@@ -8,32 +8,34 @@ app.use(expressLayouts);
 app.use(express.static('public'));
 
 app.get('/', (_, res) => {
-  res.render('index', { title: 'Home' });
+  res.render('index', {
+    title: 'Home',
+    description: 'Know how much you love each other using our app!',
+  });
 });
 
-app.get('/result', (req, res) => {
+app.get('/results', (req, res) => {
   let { firstName, secondName } = req.query;
 
   if (typeof firstName === 'undefined' || typeof secondName === 'undefined') {
     return res.sendStatus(400);
   }
 
-  firstName = String(firstName);
-  secondName = String(secondName);
+  firstName = String(firstName).trim().toLowerCase();
+  secondName = String(secondName).trim().toLowerCase();
 
-  if (!firstName.trim() || !secondName.trim()) {
+  if (!firstName || !secondName) {
     return res.sendStatus(400);
   }
 
-  const resultA = calculate(firstName.toLowerCase(), secondName.toLowerCase());
-  const resultB = calculate(secondName.toLowerCase(), firstName.toLowerCase());
+  const results = calculate(firstName, secondName);
 
-  res.render('result', {
-    title: `Results for ${firstName} and ${secondName}`,
-    resultA,
-    resultB,
-    firstName,
-    secondName,
+  const newFirstName = firstName[0].toUpperCase() + firstName.slice(1);
+  const newSecondName = secondName[0].toUpperCase() + secondName.slice(1);
+
+  res.render('results', {
+    title: `Results for ${newFirstName} and ${newSecondName}`,
+    description: `${newFirstName} loves ${newSecondName} ${results}`,
   });
 });
 
