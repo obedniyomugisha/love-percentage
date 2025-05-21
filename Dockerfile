@@ -10,4 +10,4 @@ COPY . .
 RUN deno cache main.ts
 
 # Run the app
-CMD ["deno", "run", "--allow-net", "main.ts"]
+CMD ["deno", "task", "start"]
