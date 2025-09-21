@@ -36,6 +36,8 @@ app.get('/results', (req, res) => {
   res.render('results', {
     title: `Results for ${newFirstName} and ${newSecondName}`,
     description: `${newFirstName} loves ${newSecondName} ${results}`,
+    firstName,
+    secondName,
   });
 });
 

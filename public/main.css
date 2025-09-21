@@ -87,9 +87,15 @@ button {
 
   h1 {
     margin-bottom: 2rem;
+    font-weight: 400;
   }
 
   h2 {
     font-weight: 500;
   }
+}
+
+.results__nav {
+  display: flex;
+  justify-content: space-between;
 }
