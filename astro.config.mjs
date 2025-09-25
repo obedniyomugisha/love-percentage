@@ -50,4 +50,6 @@ export default defineConfig({
       : node({
           mode: 'standalone',
         }),
+
+  site: 'https://love-percentage-calc.vercel.app/',
 });
