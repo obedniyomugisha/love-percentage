@@ -17,5 +17,6 @@
     {placeholder}
     class="bg-white py-2 px-1.5 rounded-lg"
     bind:value
+    required
   />
 </div>
