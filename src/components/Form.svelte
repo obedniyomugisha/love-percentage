@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { replaceSpaces } from '../lib/utils';
   import Input from './Input.svelte';
 
   let firstName = $state('');
@@ -10,7 +11,7 @@
     secondName = secondName.trim();
 
     if (!firstName || !secondName) return;
-    document.location = `/${firstName}-and-${secondName}`;
+    document.location = `/${replaceSpaces(firstName)}-and-${replaceSpaces(secondName)}`;
   }
 </script>
 

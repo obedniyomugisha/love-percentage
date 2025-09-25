@@ -2,9 +2,12 @@
 import LayoutWithDynamicOG from '../layouts/LayoutWithDynamicOG.astro';
 import calculateLovePercentage from '../lib/percentage';
 import Results from '../components/Results/index.svelte';
+import { replaceUnderscores } from '../lib/utils';
 
 export const prerender = false;
-const { first = '', second = '' } = Astro.params;
+let { first = '', second = '' } = Astro.params;
+first = replaceUnderscores(first);
+second = replaceUnderscores(second);
 
 const names = `${first} & ${second}`;
 const steps = calculateLovePercentage(first, second);
