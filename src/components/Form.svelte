@@ -17,7 +17,7 @@
 <form
   {onsubmit}
   class="flex flex-col gap-2 text-lg max-w-md mx-auto bg-pink-50
-  py-5 px-3 rounded border-[1.5px] border-pink-200"
+  py-5 px-3 rounded border-[1.5px] mb-5 border-pink-200"
 >
   <Input
     id="first-name"
@@ -28,7 +28,7 @@
   <Input
     id="second-name"
     label="Second Name"
-    placeholder="Eg: John"
+    placeholder="Eg: Jane"
     bind:value={secondName}
   ></Input>
 

@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="space-y-2 my-3 text-center text-2xl
+  class="space-y-2 my-3 mb-5 text-center text-2xl
   border-t-red-400 w-fit mx-auto pt-2 border-t-2"
 >
   {#each steps as step, i}

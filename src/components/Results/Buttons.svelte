@@ -14,7 +14,8 @@
     _second,
     origin,
   }: Props = $props();
-  const labels = ['Swapp Names', 'Reset', 'Copy Link'];
+
+  const labels = ['Swapp Names', 'Reset', 'Copy Link', 'Go Back Home'];
   const functions = [
     () => (document.location = `${second}-and-${first}`),
     () => {
@@ -22,6 +23,7 @@
       second = _second;
     },
     () => navigator.clipboard.writeText(origin + `/${first}-and-${second}`),
+    () => (document.location = '/'),
   ];
 </script>
 
