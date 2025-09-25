@@ -15,7 +15,7 @@
     origin,
   }: Props = $props();
 
-  const labels = ['Swapp Names', 'Reset', 'Copy Link', 'Go Back Home'];
+  const labels = ['Flip Names', 'Undo Changes', 'Copy Love Link', 'Home'];
   const functions = [
     () => (document.location = `${second}-and-${first}`),
     () => {
