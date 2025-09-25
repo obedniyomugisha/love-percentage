@@ -1,0 +1,22 @@
+{
+  "name": "love-percentage-calculator",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.4.4",
+    "@astrojs/svelte": "^7.2.0",
+    "@fontsource/inter": "^5.2.8",
+    "@sumitgohil/astro-opengraph-image": "^0.2.7",
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.13.11",
+    "svelte": "^5.39.6",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,19 @@
+---
+import LayoutWithDynamicOG from '../layouts/LayoutWithDynamicOG.astro';
+import calculateLovePercentage from '../lib/percentage';
+import Results from '../components/Results/index.svelte';
+
+export const prerender = false;
+const { first = '', second = '' } = Astro.params;
+
+const names = `${first} & ${second}`;
+const steps = calculateLovePercentage(first, second);
+const percentage = steps.at(-1) ?? 0;
+
+const title = `${first} Loves ${second} ${percentage}%`;
+const desc = `${first} and ${second} have a love percentage of ${percentage}%.`;
+---
+
+<LayoutWithDynamicOG {names} {percentage} {title} {desc}>
+  <Results {first} {second} origin={Astro.url.origin} client:load />
+</LayoutWithDynamicOG>

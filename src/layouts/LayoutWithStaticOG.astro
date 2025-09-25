@@ -1,0 +1,16 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { Props } from './BaseLayout.astro';
+
+const { title, desc } = Astro.props;
+---
+
+<BaseLayout {title} {desc}>
+  <meta
+    slot="open-graph-image"
+    property="og:image"
+    content={Astro.url.origin + '/assets/open-graph.png'}
+  />
+
+  <slot />
+</BaseLayout>

@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+*,
+*::before,
+*::after {
+  &::selection {
+    color: var(--color-white);
+    background-color: var(--color-pink-500);
+  }
+
+  accent-color: var(--color-pink-400);
+}
