@@ -2,9 +2,13 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import svelte from '@astrojs/svelte';
+
 import sumitgohilopengraphImage from '@sumitgohil/astro-opengraph-image';
 import { readFile } from 'node:fs/promises';
+
 import node from '@astrojs/node';
+import vercel from '@astrojs/vercel';
+import { loadEnv } from 'vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,7 +44,10 @@ export default defineConfig({
     }),
   ],
 
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter:
+    loadEnv(process.env.NODE_ENV || '', process.cwd(), '').ADAPTER === 'VERCEL'
+      ? vercel()
+      : node({
+          mode: 'standalone',
+        }),
 });
