@@ -1,0 +1,16 @@
+---
+import OpenGraph from '../components/OpenGraph.astro';
+import BaseLayout from './BaseLayout.astro';
+import type { Props as P } from '../components/OpenGraph.astro';
+import type { Props as Q } from './BaseLayout.astro';
+
+type Props = P & Q;
+
+const { names, percentage, title, desc } = Astro.props;
+---
+
+<BaseLayout {title} {desc}>
+  <OpenGraph {names} {percentage} slot="open-graph-image" />
+
+  <slot />
+</BaseLayout>

@@ -1,0 +1,46 @@
+---
+import { OgImage } from '@sumitgohil/astro-opengraph-image/components';
+
+export interface Props {
+  names: string;
+  percentage: number;
+}
+
+const { names, percentage } = Astro.props;
+---
+
+<OgImage filename="og">
+  <div>
+    <h1>{percentage}%</h1>
+    <h2>{names}</h2>
+  </div>
+
+  <style is:inline>
+    * {
+      font-family: 'Inter';
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      height: 100%;
+    }
+
+    h1 {
+      font-size: 90px;
+      font-weight: 700;
+      color: #c6005c;
+    }
+
+    h2 {
+      font-size: 37px;
+      text-align: center;
+    }
+  </style>
+</OgImage>
