@@ -1,0 +1,10 @@
+---
+import { extractMetaImageTag } from '../../lib/utils';
+
+const html = await Astro.slots.render('default');
+const image = extractMetaImageTag(html);
+
+if (!image) return;
+---
+
+<meta name="twitter:image" content={image.url} />

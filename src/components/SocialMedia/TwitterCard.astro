@@ -1,0 +1,12 @@
+---
+import type { Props } from '../../layouts/BaseLayout.astro';
+
+const { title, desc } = Astro.props;
+---
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content={Astro.url.host} />
+<meta property="twitter:url" content={Astro.url.origin} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={desc} />
+<slot />

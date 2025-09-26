@@ -1,9 +1,10 @@
 ---
 import LayoutWithStaticOG from '../layouts/LayoutWithStaticOG.astro';
 import Form from '../components/Form.svelte';
+import { TITLE, DESC } from '../lib/consts';
 ---
 
-<LayoutWithStaticOG>
+<LayoutWithStaticOG title={TITLE} desc={DESC}>
   <h1 class="text-4xl text-pink-600 font-bold text-center text-balance my-8">
     Love Percentage Calculator
   </h1>

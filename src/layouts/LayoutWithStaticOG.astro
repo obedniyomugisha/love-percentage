@@ -3,14 +3,12 @@ import BaseLayout from './BaseLayout.astro';
 import type { Props } from './BaseLayout.astro';
 
 const { title, desc } = Astro.props;
+const image = Astro.url.origin + '/assets/open-graph.png';
 ---
 
 <BaseLayout {title} {desc}>
-  <meta
-    slot="open-graph-image"
-    property="og:image"
-    content={Astro.url.origin + '/assets/open-graph.png'}
-  />
+  <meta slot="open-graph-image" property="og:image" content={image} />
+  <meta slot="twitter-card-image" name="twitter:image" content={image} />
 
   <slot />
 </BaseLayout>

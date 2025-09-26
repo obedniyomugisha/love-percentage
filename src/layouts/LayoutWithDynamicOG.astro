@@ -1,8 +1,9 @@
 ---
-import OpenGraph from '../components/OpenGraph.astro';
 import BaseLayout from './BaseLayout.astro';
-import type { Props as P } from '../components/OpenGraph.astro';
+import type { Props as P } from '../components/SocialMedia/OpenGraphImage.astro';
 import type { Props as Q } from './BaseLayout.astro';
+import OpenGraphImage from '../components/SocialMedia/OpenGraphImage.astro';
+import TwitterCardImage from '../components/SocialMedia/TwitterCardImage.astro';
 
 type Props = P & Q;
 
@@ -10,7 +11,10 @@ const { names, percentage, title, desc } = Astro.props;
 ---
 
 <BaseLayout {title} {desc}>
-  <OpenGraph {names} {percentage} slot="open-graph-image" />
+  <OpenGraphImage {names} {percentage} slot="open-graph-image" />
+  <TwitterCardImage slot="twitter-card-image">
+    <OpenGraphImage {names} {percentage} />
+  </TwitterCardImage>
 
   <slot />
 </BaseLayout>
