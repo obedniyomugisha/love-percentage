@@ -1,7 +1,7 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { TITLE, DESC } from '../lib/consts';
-import Input from '../components/Input.astro';
+import Layout from '@layouts/Layout.astro';
+import { TITLE, DESC } from '@lib/consts';
+import Input from '@components/Input.astro';
 ---
 
 <Layout title={TITLE} desc={DESC}>
@@ -25,4 +25,4 @@ import Input from '../components/Input.astro';
   </form>
 </Layout>
 
-<script src="../scripts/form.ts"></script>
+<script src="@scripts/form.ts"></script>

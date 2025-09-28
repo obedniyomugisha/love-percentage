@@ -1,5 +1,5 @@
-import { submitForm } from './form';
-import { OGImageURL } from './open-graph';
+import { submitForm } from '@actions/form';
+import { OGImageURL } from '@actions/open-graph';
 
 export const server = {
   OGImageURL,

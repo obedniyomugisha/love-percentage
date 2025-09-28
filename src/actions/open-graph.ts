@@ -2,8 +2,8 @@ import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
 
 import { experimental_AstroContainer } from 'astro/container';
-import OpenGraphImage from '../components/SocialMedia/OpenGraphImage.astro';
-import { extractMetaImageTag } from '../lib/utils';
+import OpenGraphImage from '@components/SocialMedia/OpenGraphImage.astro';
+import { extractMetaImageTag } from '@lib/utils';
 
 export const OGImageURL = defineAction({
   input: z.object({

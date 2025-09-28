@@ -1,6 +1,6 @@
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
-import { replaceSpaces } from '../lib/utils';
+import { replaceSpaces } from '@lib/utils';
 
 const zName = z.string().trim().min(1);
 

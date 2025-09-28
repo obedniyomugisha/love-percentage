@@ -1,4 +1,4 @@
-import { replaceSpaces } from './utils';
+import { replaceSpaces } from '@lib/utils';
 
 export interface Props {
   first: string;

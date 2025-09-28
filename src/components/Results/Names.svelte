@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { Props } from './index.svelte';
-  import Name from './Name.svelte';
+  import type { Props } from '@components/Results/index.svelte';
+  import Name from '@components/Results/Name.svelte';
 
   let { first = $bindable(), second = $bindable() }: Props = $props();
 </script>

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Title from './Title.svelte';
-  import calculateLovePercentage from '../../lib/percentage';
-  import Names from './Names.svelte';
-  import Buttons from './Buttons.svelte';
-  import Steps from './Steps.svelte';
+  import Title from '@components/Results/Title.svelte';
+  import calculateLovePercentage from '@lib/percentage';
+  import Names from '@components/Results/Names.svelte';
+  import Buttons from '@components/Results/Buttons.svelte';
+  import Steps from '@components/Results/Steps.svelte';
 
   export interface Props {
     first: string;
