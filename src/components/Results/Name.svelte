@@ -6,10 +6,11 @@
   let { innerText = $bindable() }: Props = $props();
 </script>
 
-<!-- svelte-ignore a11y_autofocus -->
 <span
-  class="font-bold text-pink-900 outline-0"
-  autofocus
+  class="font-bold text-pink-900 bg-gray-50 outline-[1.5px] py-1.5
+  px-2 rounded outline-gray-300 focus:outline-pink-300"
   bind:innerText
-  contenteditable>{innerText}</span
+  contenteditable
 >
+  {innerText}
+</span>
