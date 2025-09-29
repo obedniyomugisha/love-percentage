@@ -1,0 +1,30 @@
+---
+interface Props {
+  id: string;
+  placeholder: string;
+  label: string;
+}
+
+const { id, label, placeholder } = Astro.props;
+---
+
+<div class="flex flex-col gap-1">
+  <label for={id} class="font-semibold">{label}</label>
+  <input
+    type="text"
+    {id}
+    {placeholder}
+    name={id}
+    class="bg-white py-2 px-1.5 rounded-lg"
+    required
+  />
+  <small class="text-red-500 hidden"
+    >{label} must contain at least 1 character(s)</small
+  >
+</div>
+
+<style>
+  input.error + small {
+    display: block;
+  }
+</style>

@@ -1,12 +1,28 @@
 ---
-import LayoutWithStaticOG from '../layouts/LayoutWithStaticOG.astro';
-import Form from '../components/Form.svelte';
-import { TITLE, DESC } from '../lib/consts';
+import Layout from '@layouts/Layout.astro';
+import { TITLE, DESC } from '@lib/consts';
+import Input from '@components/Input.astro';
 ---
 
-<LayoutWithStaticOG title={TITLE} desc={DESC}>
+<Layout title={TITLE} desc={DESC}>
   <h1 class="text-4xl text-pink-600 font-bold text-center text-balance my-8">
     Love Percentage Calculator
   </h1>
-  <Form client:load />
-</LayoutWithStaticOG>
+
+  <form
+    class="flex flex-col gap-2 text-lg max-w-md mx-auto bg-pink-50
+    py-5 px-3 rounded border-[1.5px] mb-5 border-pink-200"
+  >
+    <Input id="firstName" label="First Name" placeholder="Eg: John" />
+    <Input id="secondName" label="Second Name" placeholder="Eg: Jane" />
+
+    <button
+      class="bg-pink-700 text-white font-bold text-2xl
+      py-2 rounded-full justify-self-center mt-6 cursor-pointer
+      hover:bg-pink-600 transition duration-300"
+      >Check Love 💝</button
+    >
+  </form>
+</Layout>
+
+<script src="@scripts/form.ts"></script>

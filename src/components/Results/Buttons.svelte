@@ -5,8 +5,8 @@
     flipNames,
     goHome,
     labels,
-  } from '../../lib/buttons';
-  import Button from './Button.svelte';
+  } from '@lib/buttons';
+  import Button from '@components/Results/Button.svelte';
 
   let {
     first = $bindable(),

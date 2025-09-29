@@ -1,8 +1,9 @@
 ---
-import LayoutWithDynamicOG from '../layouts/LayoutWithDynamicOG.astro';
-import calculateLovePercentage from '../lib/percentage';
-import Results from '../components/Results/index.svelte';
-import { replaceUnderscores } from '../lib/utils';
+import Layout from '@layouts/Layout.astro';
+import calculateLovePercentage from '@lib/percentage';
+import Results from '@components/Results/index.svelte';
+import { replaceUnderscores } from '@lib/utils';
+import { actions } from 'astro:actions';
 
 export const prerender = false;
 let { first = '', second = '' } = Astro.params;
@@ -15,8 +16,12 @@ const percentage = steps.at(-1) ?? 0;
 
 const title = `${first} Loves ${second} ${percentage}%`;
 const desc = `${first} and ${second} have a love percentage of ${percentage}%.`;
+const { data } = await Astro.callAction(actions.OGImageURL, {
+  names,
+  percentage,
+});
 ---
 
-<LayoutWithDynamicOG {names} {percentage} {title} {desc}>
+<Layout {title} {desc} image={data}>
   <Results {first} {second} origin={Astro.url.origin} client:load />
-</LayoutWithDynamicOG>
+</Layout>
